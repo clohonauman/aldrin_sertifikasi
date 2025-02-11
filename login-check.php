@@ -104,7 +104,7 @@ if(isset($_POST['kode_akses']) AND !isset($_SESSION['login_email'])){
 	}
 }elseif(isset($_GET['select_role'])){
 	$id_akun=$_SESSION['id_akun'];
-	$query_kode_akses = mysqli_query($mysqli, "SELECT * FROM peran WHERE id_akun='$id_akun' AND kode_akses IN ('0','1','2','3','4','7')  ORDER BY kode_akses")
+	$query_kode_akses = mysqli_query($mysqli, "SELECT * FROM peran WHERE id_akun='$id_akun' AND kode_akses IN ('0','1','2','3','7')  ORDER BY kode_akses")
 									or die('Ada kesalahan pada query user: '.mysqli_error($mysqli));
 	if(mysqli_num_rows($query_kode_akses)>0){
 		?>
@@ -149,7 +149,7 @@ if(isset($_POST['kode_akses']) AND !isset($_SESSION['login_email'])){
 			<body class="bg-dark">
 					<div class="row w-40">
 						<div class="col-lg-6 d-flex align-items-center justify-content-center custom">
-							<div class=" shadow rounded p-4" style="width: 100%; max-width: 400px; background:#3B82F6;">
+							<div class="bg-dark shadow rounded p-4" style="width: 100%; max-width: 400px;">
 								<img class="card-title text-center m-0 w-100" src="assets/img/ALDRIN SERTIFIKASI.png" alt="">
 								<hr>
 								<div class="card-body mt-0">
@@ -172,8 +172,8 @@ if(isset($_POST['kode_akses']) AND !isset($_SESSION['login_email'])){
 										</select>
 									</div>
 									<hr>
-									<button type="submit" class="btn btn-primary w-100 mb-2" style="border-radius:50px;background:#020552;">LANJUT</button>
-									<a class="btn w-100" href="./logout.php" style="border-radius:50px;">BATAL</a>
+									<button type="submit" class="btn btn-primary w-100 mb-2" style="border-radius:50px;">LANJUT</button>
+									<a class="btn btn-secondary w-100" href="./logout.php" style="border-radius:50px;">BATAL</a>
 									</form>
 								</div>
 							</div>
