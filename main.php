@@ -31,7 +31,7 @@ if(isset($_SESSION['kode_akses']) AND isset($_SESSION['token']) AND isset($_SESS
         <link href="assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <style>
             .sidebar-dark {
-                background-color: #3B82F6 !important;
+                background-color: #383c44 !important;
             }
         </style>
         
