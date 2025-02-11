@@ -14,11 +14,11 @@ $mail->SMTPDebug = 0;
 $mail->isSMTP();                      
 $mail->Host = "tls://smtp.gmail.com";
 $mail->SMTPAuth = true;
-$mail->Username = "sipgtk.sulut@gmail.com";         
-$mail->Password = "avhs kewb eluv dbnh";
+$mail->Username = "";         
+$mail->Password = "";
 $mail->SMTPSecure = "tls";     
 $mail->Port = 587;                                   
 
-$mail->From = "sipgtk.sulut@gmail.com";
-$mail->FromName = "SIPGTK DINAS PENDIDIKAN DAERAH PROVINSI SULAWESI UTARA";
+$mail->From = "";
+$mail->FromName = "ALDRIN SERTIFIKASI | DINAS PENDIDIKAN KABUPATEN MINAHASA UTARA";
 ?>

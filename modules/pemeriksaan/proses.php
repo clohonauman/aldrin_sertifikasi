@@ -23,8 +23,8 @@ else {
                 $mail->addAddress($email, "");
                 $mail->isHTML(true);
                 $mail->Subject = "BERKAS TELAH LANJUT KE TAHAP BERIKUT";
-                $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah disetujui oleh Verifikator 2 (Bidang GTK) dan saat ini sedang proses pengajuan SKTP. Terima Kasih.";
-                $mail->AltBody = "#SIPGTK";
+                $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah disetujui oleh Verifikator 2. Terima Kasih.";
+                $mail->AltBody = "#ALDRIN SERTIFIKASI";
                 $status='S3';
                 $komentar='';
 
@@ -153,8 +153,8 @@ else {
                 $s="S1";
             }elseif($_SESSION['kode_akses']==2){
                 $s="S2";
-                $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 2 (Bidang GTK). Silahkan lakukan perbaikan secepatnya sesuai dengan alasan penolakan yang diberikan. Terima Kasih.";
-                $mail->AltBody = "#SIPGTK";
+                $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 2. Silahkan lakukan perbaikan secepatnya sesuai dengan alasan penolakan yang diberikan. Terima Kasih.";
+                $mail->AltBody = "#ALDRIN SERTIFIKASI";
             }
 
             if($mail->send()){
@@ -773,12 +773,12 @@ else {
         $mail->isHTML(true);
         $mail->Subject = "BERKAS TELAH LANJUT KE TAHAP BERIKUT";
         if($_SESSION['kode_akses']==1){
-            $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$_GET['id']." telah disetujui oleh Verifikator 1 (Cabang Dinas) dan saat ini sedang menunggu Verifikasi Tahap 2 (Bidang GTK). Terima Kasih.";
-            $mail->AltBody = "#SIPGTK";
+            $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$_GET['id']." telah disetujui oleh Verifikator 1. Terima Kasih.";
+            $mail->AltBody = "#ALDRIN SERTIFIKASI";
             $s="S2";
         }elseif($_SESSION['kode_akses']==2){
-            $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$_GET['id']." telah disetujui oleh Verifikator 2 (Bidang GTK) dan saat ini sedang proses pengajuan SKTP. Terima Kasih.";
-            $mail->AltBody = "#SIPGTK";
+            $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$_GET['id']." telah disetujui oleh Verifikator 2. Terima Kasih.";
+            $mail->AltBody = "#ALDRIN SERTIFIKASI";
             $s="S3";
         }
         $komentar="";
@@ -844,11 +844,11 @@ else {
         $mail->Subject = "BERKAS DITOLAK";
 
         if($_SESSION['kode_akses']==1){
-            $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 1 (Cabang Dinas). Silahkan lakukan perbaikan secepatnya sesuai dengan alasan penolakan yang diberikan. Terima Kasih.";
-            $mail->AltBody = "#SIPGTK";
+            $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 1. Terima Kasih.";
+            $mail->AltBody = "#ALDRIN SERTIFIKASI";
         }elseif($_SESSION['kode_akses']==2){
-            $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 2 (Bidang GTK). Silahkan lakukan perbaikan secepatnya sesuai dengan alasan penolakan yang diberikan. Terima Kasih.";
-            $mail->AltBody = "#SIPGTK";
+            $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda ajukan untuk guru dengan NUPTK ".$_GET['id']." telah ditolak oleh Verifikator 2. Terima Kasih.";
+            $mail->AltBody = "#ALDRIN SERTIFIKASI";
         }
         if($mail->send()){
             $query=mysqli_query($mysqli,"UPDATE pengusulan_sktp SET keterangan='Ditolak' WHERE nuptk='$_GET[id]' AND periode='$periode' ");

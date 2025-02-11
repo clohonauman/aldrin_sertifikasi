@@ -24,8 +24,8 @@ if (empty($_SESSION['nama_pengguna']) OR empty($_SESSION['id_akun'])){
                 $mail->addAddress($email, "");
                 $mail->isHTML(true);
                 $mail->Subject = "BERKAS TELAH LANJUT KE TAHAP BERIKUT";
-                $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah melewati proses pengajuan SKTP dan saat ini sedang menunggu verifikasi SIMBAR. Terima Kasih.";
-                $mail->AltBody = "#SIPGTK";
+                $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah melewati proses pengajuan SIMTUN dan saat ini sedang menunggu verifikasi SIMBAR. Terima Kasih.";
+                $mail->AltBody = "#ALDRIN SERTIFIKASI";
                 
                 if($mail->send()){
                     $query=mysqli_query($mysqli,"UPDATE pengusulan_sktp SET status='$status' WHERE periode='$periode' AND nuptk='$nuptk'");
@@ -51,7 +51,7 @@ if (empty($_SESSION['nama_pengguna']) OR empty($_SESSION['id_akun'])){
                 if(isset($_POST['batal_validasi'])){
                     $status="S3";
                     $subjek="BERKAS DIMUNDURKAN KE TAHAP SEBELUMNYA";
-                    $body="Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." dibatalkan dan kembali ke tahap Menunggu Verifikasi SIMTUN. Untuk info lebih lanjut dapat menghubungi Admin SIPGTK. Terima Kasih.";
+                    $body="Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." dibatalkan dan kembali ke tahap Menunggu Verifikasi SIMTUN. Untuk info lebih lanjut dapat menghubungi Admin ALDRIN SERTIFIKASI. Terima Kasih.";
                     $query=mysqli_query($mysqli,"UPDATE pengusulan_sktp SET status='$status' WHERE periode='$periode' AND nuptk='$nuptk'");
                     $queryget=mysqli_query($mysqli,"SELECT id_pengusulan_sktp FROM pengusulan_sktp WHERE periode='$periode' AND nuptk='$nuptk'");
                     $data=mysqli_fetch_assoc($queryget);
@@ -59,7 +59,7 @@ if (empty($_SESSION['nama_pengguna']) OR empty($_SESSION['id_akun'])){
                 }else{
                     $status="S5";
                     $subjek="BERKAS TELAH LANJUT KE TAHAP BERIKUT";
-                    $body="Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah selesai proses SIMBAR dan saat ini sedang menunggu verifikasi SPM. Terima Kasih.";
+                    $body="Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah selesai proses SIMBAR dan saat ini sedang menunggu verifikasi SPM. Terima Kasih.";
                     $query=mysqli_query($mysqli,"UPDATE pengusulan_sktp SET status='$status' WHERE periode='$periode' AND nuptk='$nuptk'");
                     $queryget=mysqli_query($mysqli,"SELECT id_pengusulan_sktp FROM pengusulan_sktp WHERE periode='$periode' AND nuptk='$nuptk'");
                     $data=mysqli_fetch_assoc($queryget);
@@ -99,8 +99,8 @@ if (empty($_SESSION['nama_pengguna']) OR empty($_SESSION['id_akun'])){
                 $mail->addAddress($email, "");
                 $mail->isHTML(true);
                 $mail->Subject = "BERKAS TELAH SELESAI ADMINISTRASI";
-                $mail->Body    = "Hallo Operator SIPGTK. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah selesai secara pemberkasan (administrasi). Mohon untuk menunggu pembayaran ± 2 Minggu. Terima Kasih.";
-                $mail->AltBody = "#SIPGTK";
+                $mail->Body    = "Hallo Operator ALDRIN SERTIFIKASI. Berkas yang anda usulkan untuk Guru dengan NUPTK ".$nuptk." telah selesai secara pemberkasan (administrasi). Mohon untuk menunggu pembayaran ± 2 Minggu. Terima Kasih.";
+                $mail->AltBody = "#ALDRIN SERTIFIKASI";
 
                 if($mail->send()){    
                     $query=mysqli_query($mysqli,"UPDATE pengusulan_sktp SET status='$status', keterangan='' WHERE periode='$periode' AND nuptk='$nuptk'");
