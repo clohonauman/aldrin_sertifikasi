@@ -199,7 +199,7 @@ if(isset($_GET['alert'])){
           if(isset($_GET['id'])){
               $periode=$_GET['periode'];
               $nuptk=$_GET['id'];
-              $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk='$nuptk'");
+              $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk like '%$nuptk'");
               $dataguru=mysqli_fetch_assoc($queryguru);
               $riwayat_kepangkatan_pangkat_golongan=$dataguru['riwayat_kepangkatan_pangkat_golongan'];
               $riwayat_sertifikasi_jenis_sertifikasi=$dataguru['riwayat_sertifikasi_jenis_sertifikasi'];

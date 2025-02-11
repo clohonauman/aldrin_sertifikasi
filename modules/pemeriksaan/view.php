@@ -248,63 +248,57 @@
                           <!-- tampilan tabel header -->
                           <thead>
                             <tr>
-                              <th class="center">No.</th>
+                              <th class="center">NO.</th>
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
+                              <th class="center">PERIODE</th>
                               <th class="center">AKSI</th>
                             </tr> 
                           </thead>
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $cabdin=explode('-',$_SESSION['cabdin']);
                           $kab1=$cabdin[0];
                           if(isset($cabdin[1])){
-                            $kab2=$cabdin[1];
-                            if($kab2=='SMA' OR $kab2=='SMK' OR $kab2=='SLB'){
-                              $bentuk_pendidikan=$kab2;
-                            }else{
-                              $bentuk_pendidikan='';
-                            }
+                            $query_tambahan="AND bentuk_pendidikan='$cabdin[1]'";
                           }else{
-                            $bentuk_pendidikan='';
-                            $kab2="";
+                            $query_tambahan="";
                           }
                           $no = 1;
-                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND (status='S1' ) AND (kabupaten='$kab1' OR  kabupaten='$kab2') AND keterangan='Menunggu Verifikasi' ORDER BY waktu_pengusulan ASC")
+                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE 
+                                                                                            periode='$_GET[periode]' AND 
+                                                                                            status='S1' AND 
+                                                                                            keterangan='Menunggu Verifikasi' AND
+                                                                                            kabupaten='$kab1'
+                                                                                            ORDER BY waktu_pengusulan ASC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
-  
-                          while ($data = mysqli_fetch_assoc($query)) { 
-                            $status=convertStatus($data['status']); 
-                            $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
-                            ?>
-                            <tr>
-                              <td width='20' class='center'><?=$no?></td>
-                              <td  class='center'><?=$data['nama_guru']?></td>
-                              <td  class='center'><?=$datasklh['nama']?></td>
-                              <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
-                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                              <td  class='center'><?=$keterangan." ".$status?></td>
-                              <td class='center'>
-                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                    <i style='color:#fff' class='fa fa-eye'></i>
-                                </a>
-                              </td>
-                            </tr>
-                          <?php
-                            $no++;
+                          while($data=mysqli_fetch_assoc($query)){
+                            $status=convertStatus($data['status']);
+                            $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]' $query_tambahan");
+                            if(mysqli_num_rows($query2)>0){
+                              $data2=mysqli_fetch_assoc($query2);
+                              ?>
+                              <tr>
+                                <td width='20' class='center'><?=$no?></td>
+                                <td  class='center'><?=$data['nama_guru']?></td>
+                                <td  class='center'><?=$data2['nama']?></td>
+                                <td  class='center'><?=$data['nuptk']?></td>
+                                <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                                <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                                <td  class='center'><?=$data['periode']?></td>
+                                <td class='center'>
+                                  <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                      <i style='color:#fff' class='fa fa-eye'></i>
+                                  </a>
+                                </td>
+                              </tr>      
+                              <?php
+                              $no++;
+                            }
                           }
                           ?>
                           </tbody>
@@ -320,63 +314,56 @@
                           <!-- tampilan tabel header -->
                           <thead>
                             <tr>
-                              <th class="center">No.</th>
+                              <th class="center">NO.</th>
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
+                              <th class="center">PERIODE</th>
                               <th class="center">AKSI</th>
                             </tr> 
                           </thead>
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $cabdin=explode('-',$_SESSION['cabdin']);
                           $kab1=$cabdin[0];
                           if(isset($cabdin[1])){
-                            $kab2=$cabdin[1];
-                            if($kab2=='SMA' OR $kab2=='SMK' OR $kab2=='SLB'){
-                              $bentuk_pendidikan=$kab2;
-                            }else{
-                              $bentuk_pendidikan='';
-                            }
+                            $query_tambahan="AND bentuk_pendidikan='$cabdin[1]'";
                           }else{
-                            $bentuk_pendidikan='';
-                            $kab2="";
+                            $query_tambahan="";
                           }
                           $no = 1;
-                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND (status='S1' ) AND (kabupaten='$kab1' OR  kabupaten='$kab2') AND keterangan='Ditolak' ORDER BY waktu_pengusulan ASC")
+                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE 
+                                                                                            periode='$_GET[periode]' 
+                                                                                            AND status='S1'
+                                                                                            AND keterangan='Ditolak' 
+                                                                                        ORDER BY waktu_pengusulan ASC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
-  
-                          while ($data = mysqli_fetch_assoc($query)) { 
-                            $status=convertStatus($data['status']); 
-                            $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
-                            ?>
-                            <tr>
-                              <td width='20' class='center'><?=$no?></td>
-                              <td  class='center'><?=$data['nama_guru']?></td>
-                              <td  class='center'><?=$datasklh['nama']?></td>
-                              <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
-                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                              <td  class='center'><?=$keterangan." ".$status?></td>
-                              <td class='center'>
-                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                    <i style='color:#fff' class='fa fa-eye'></i>
-                                </a>
-                              </td>
-                            </tr>
-                          <?php
-                            $no++;
+                          while($data=mysqli_fetch_assoc($query)){
+                            $status=convertStatus($data['status']);
+                            $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]' $query_tambahan");
+                            if(mysqli_num_rows($query2)>0){
+                              $data2=mysqli_fetch_assoc($query2);
+                              ?>
+                              <tr>
+                                <td width='20' class='center'><?=$no?></td>
+                                <td  class='center'><?=$data['nama_guru']?></td>
+                                <td  class='center'><?=$data2['nama']?></td>
+                                <td  class='center'><?=$data['nuptk']?></td>
+                                <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                                <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                                <td  class='center'><?=$data['periode']?></td>
+                                <td class='center'>
+                                  <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                      <i style='color:#fff' class='fa fa-eye'></i>
+                                  </a>
+                                </td>
+                              </tr>      
+                              <?php
+                              $no++;
+                            }
                           }
                           ?>
                           </tbody>
@@ -405,50 +392,43 @@
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $cabdin=explode('-',$_SESSION['cabdin']);
                           $kab1=$cabdin[0];
                           if(isset($cabdin[1])){
-                            $kab2=$cabdin[1];
-                            if($kab2=='SMA' OR $kab2=='SMK' OR $kab2=='SLB'){
-                              $bentuk_pendidikan=$kab2;
-                            }else{
-                              $bentuk_pendidikan='';
-                            }
+                            $query_tambahan="AND bentuk_pendidikan='$cabdin[1]'";
                           }else{
-                            $bentuk_pendidikan='';
-                            $kab2="";
+                            $query_tambahan="";
                           }
                           $no = 1;
-                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND (status='S1' ) AND (kabupaten='$kab1' OR  kabupaten='$kab2') AND keterangan='Telah Direvisi' ORDER BY waktu_pengusulan ASC")
+                          $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE 
+                                                                                              periode='$_GET[periode]' 
+                                                                                              AND status='S1'
+                                                                                              AND keterangan='Telah Direvisi' 
+                                                                                        ORDER BY waktu_pengusulan ASC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
-  
-                          while ($data = mysqli_fetch_assoc($query)) { 
-                            $status=convertStatus($data['status']); 
-                            $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
-                            ?>
-                            <tr>
-                              <td width='20' class='center'><?=$no?></td>
-                              <td  class='center'><?=$data['nama_guru']?></td>
-                              <td  class='center'><?=$datasklh['nama']?></td>
-                              <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
-                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                              <td  class='center'><?=$keterangan." ".$status?></td>
-                              <td class='center'>
-                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                    <i style='color:#fff' class='fa fa-eye'></i>
-                                </a>
-                              </td>
-                            </tr>
-                          <?php
-                            $no++;
+                          while($data=mysqli_fetch_assoc($query)){
+                            $status=convertStatus($data['status']);
+                            $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]' $query_tambahan");
+                            if(mysqli_num_rows($query2)>0){
+                              $data2=mysqli_fetch_assoc($query2);
+                              ?>
+                              <tr>
+                                <td width='20' class='center'><?=$no?></td>
+                                <td  class='center'><?=$data['nama_guru']?></td>
+                                <td  class='center'><?=$data2['nama']?></td>
+                                <td  class='center'><?=$data['nuptk']?></td>
+                                <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                                <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                                <td  class='center'><?=$data['periode']?></td>
+                                <td class='center'>
+                                  <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                      <i style='color:#fff' class='fa fa-eye'></i>
+                                  </a>
+                                </td>
+                              </tr>      
+                              <?php
+                              $no++;
+                            }
                           }
                           ?>
                           </tbody>
@@ -473,16 +453,15 @@
                               <th class="text-center">NAMA GURU</th>
                               <th class="text-center">SEKOLAH</th>
                               <th class="text-center">NUPTK</th>
-                              <th class="text-center">GOLONGAN</th>
                               <th class="text-center">WAKTU PENGUSULAN</th>
                               <th class="text-center">STATUS</th>
+                              <th class="text-center">PERIODE</th>
                               <th class="text-center">AKSI</th>
                             </tr> 
                           </thead>
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $no = 1;
                           $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S2' AND (keterangan='Menunggu Verifikasi') ORDER BY waktu_pengusulan DESC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -490,21 +469,18 @@
                           while ($data = mysqli_fetch_assoc($query)) {
                             $status=convertStatus($data['status']); 
                             $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                           or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                             $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
                             ?>
                             <tr>
                               <td  class='center'><input type="checkbox" name="nuptk[]" onchange="checkIfAnyChecked();" value="<?php echo $data['nuptk']; ?>"></td>
                               <td  class='center'><?=$data['nama_guru']?></td>
                               <td  class='center'><?=$datasklh['nama']?></td>
                               <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                               <td  class='center'><?=$data['waktu_pengusulan']?></td>
                               <td  class='center'><?=$keterangan." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
                               <td class='center'>
                                 <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
                                     <i style='color:#fff' class='fa fa-eye'></i>
@@ -559,20 +535,19 @@
                           <!-- tampilan tabel header -->
                           <thead>
                             <tr>
-                              <th class="center">No.</th>
+                              <th class="center">NO.</th>
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
+                              <th class="center">PERIODE</th>
                               <th class="center">AKSI</th>
                             </tr> 
                           </thead>
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $no = 1;
                           $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S2' AND (keterangan='Ditolak') ORDER BY waktu_pengusulan DESC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -580,21 +555,18 @@
                           while ($data = mysqli_fetch_assoc($query)) {
                             $status=convertStatus($data['status']); 
                             $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                           or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                             $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
                             ?>
                             <tr>
                               <td width='20' class='center'><?=$no?></td>
                               <td  class='center'><?=$data['nama_guru']?></td>
                               <td  class='center'><?=$datasklh['nama']?></td>
                               <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                               <td  class='center'><?=$data['waktu_pengusulan']?></td>
                               <td  class='center'><?=$keterangan." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
                               <td class='center'>
                                 <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
                                     <i style='color:#fff' class='fa fa-eye'></i>
@@ -618,7 +590,7 @@
                           <!-- tampilan tabel header -->
                           <thead>
                             <tr>
-                              <th class="center">No.</th>
+                              <th class="center">NO.</th>
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
@@ -631,7 +603,6 @@
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $no = 1;
                           $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S2' AND (keterangan='Telah Direvisi') ORDER BY waktu_pengusulan DESC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -639,21 +610,18 @@
                           while ($data = mysqli_fetch_assoc($query)) {
                             $status=convertStatus($data['status']); 
                             $keterangan=$data['keterangan']; 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                           or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                             $datasklh = mysqli_fetch_assoc($querysklh);
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
                             ?>
                             <tr>
                               <td width='20' class='center'><?=$no?></td>
                               <td  class='center'><?=$data['nama_guru']?></td>
                               <td  class='center'><?=$datasklh['nama']?></td>
                               <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                               <td  class='center'><?=$data['waktu_pengusulan']?></td>
                               <td  class='center'><?=$keterangan." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
                               <td class='center'>
                                 <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
                                     <i style='color:#fff' class='fa fa-eye'></i>

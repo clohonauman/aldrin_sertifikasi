@@ -81,21 +81,23 @@ if(isset($_GET['alert'])){
                 </div>
 
                 <div class="form-group" id="cabang_dinas_group" style="display: none;">
-                  <label class="col-sm-2 control-label">Cabang Dinas</label>
+                  <label class="col-sm-2 control-label">Bentuk Pendidikan</label>
                   <div class="col-sm-5">
                     <select  class="form-control" autocomplete="off" name="cabdin" id="cabang_dinas">
                       <option value=""></option>
-                      <option value="Kab. Minahasa Utara-Kota Bitung">Kab. Minahasa Utara - Kota Bitung</option>
-                      <option value="Kota Tomohon-Kab. Minahasa">Kota Tomohon - Kab. Minahasa</option>
-                      <option value="Kab. Minahasa Selatan-Kab. Minahasa Tenggara">Kab. Minahasa Selatan - Kab. Minahasa Tenggara</option>
-                      <option value="Kab. Kepulauan Talaud">Kab. Kepulauan Talaud</option>
-                      <option value="Kab. Kep. Sangihe">Kab. Kep. Sangihe</option>
-                      <option value="Kab. Kepulauan Siau Tagulandang Biaro">Kab. Kepulauan Siau Tagulandang Biaro</option>
-                      <option value="Kab. Bolaang Mongondow">Kab. Bolaang Mongondow</option>
-                      <option value="Kab. Bolaang Mongondow Timur-Kota Kotamobagu">Kab. Bolaang Mongondow Timur - Kota Kotamobagu</option>
-                      <option value="Kab. Bolaang Mongondow Selatan">Kab. Bolaang Mongondow Selatan</option>
-                      <option value="Kab. Bolaang Mongondow Utara">Kab. Bolaang Mongondow Utara</option>
-                      <option value="Kota Manado">Kota Manado</option>
+                      <option value="Kab. Minahasa Utara-SPK SKB">SPK SKB</option>
+                      <option value="Kab. Minahasa Utara-SPK PKBM">SPK PKBM</option>
+                      <option value="Kab. Minahasa Utara-SPK KB">SPK KB</option>
+                      <option value="Kab. Minahasa Utara-SPK TK">SPK TK</option>
+                      <option value="Kab. Minahasa Utara-SPK SD">SPK SD</option>
+                      <option value="Kab. Minahasa Utara-SPK SMP">SPK SMP</option>
+                      <option value="Kab. Minahasa Utara-SPK SMP">SPK SMP</option>
+                      <option value="Kab. Minahasa Utara-SKB">SKB</option>
+                      <option value="Kab. Minahasa Utara-PKBM">PKBM</option>
+                      <option value="Kab. Minahasa Utara-KB">KB</option>
+                      <option value="Kab. Minahasa Utara-TK">TK</option>
+                      <option value="Kab. Minahasa Utara-SD">SD</option>
+                      <option value="Kab. Minahasa Utara-SMP">SMP</option>
                     </select>
                   </div>
                 </div>

@@ -12,7 +12,7 @@
           <div class="box box-danger" style="padding:10px;">
             <!-- disini -->
             <?php
-            if($_SESSION['kode_akses']==0){
+            if($_SESSION['kode_akses']==0 OR $_SESSION['kode_akses']==7){
               ?>
               <table id="dataTable" class="table table-bordered table-striped table-hover">
                 <!-- tampilan tabel header -->
@@ -34,7 +34,7 @@
                                                 or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                 while ($data = mysqli_fetch_assoc($query)) {
-                  $queryuser = mysqli_query($mysqli, "SELECT * FROM akun INNER JOIN peran ON peran.id_akun=akun.id_akun WHERE akun.id_akun='$data[id_akun]' AND kode_akses IN (0, 1, 2, 3, 4)")
+                  $queryuser = mysqli_query($mysqli, "SELECT * FROM akun INNER JOIN peran ON peran.id_akun=akun.id_akun WHERE akun.id_akun='$data[id_akun]' AND kode_akses IN (0, 1, 2, 3, 4, 7)")
                                                 or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                   if(mysqli_num_rows($queryuser)>0){

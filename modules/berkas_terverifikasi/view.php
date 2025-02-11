@@ -226,7 +226,7 @@ if(isset($_GET['alert'])){
                     <div class="box-footer bg-btn-action">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                          <input id="submitButton" type="submit" class="load btn btn-danger btn-submit" name="simpan" value="Lanjutkan" disabled>
+                          <input id="submitButton" type="submit" class="load btn btn-primary btn-submit" name="simpan" value="Lanjutkan" disabled>
                           <a href="?module=pengajuan" class="btn btn-default btn-reset">Batal</a>
                         </div>
                       </div>
@@ -261,7 +261,6 @@ if(isset($_GET['alert'])){
                                 <th class="center">NAMA GURU</th>
                                 <th class="center">SEKOLAH</th>
                                 <th class="center">NUPTK</th>
-                                <th class="center">GOLONGAN</th>
                                 <th class="center">WAKTU PENGUSULAN</th>
                                 <th class="center">STATUS</th>
                                 <th class="center">PERIODE</th>
@@ -271,7 +270,6 @@ if(isset($_GET['alert'])){
                             <!-- tampilan tabel body -->
                             <tbody>
                             <?php  
-                            require_once 'vendor/autoload.php';
                             $no = 1;
                             $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S3' ORDER BY status ASC, waktu_pengusulan DESC")
                                                             or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -282,16 +280,12 @@ if(isset($_GET['alert'])){
                               $datasklh = mysqli_fetch_assoc($querysklh);
                               $status=convertStatus($data['status']); 
                               $keterangan=$data['keterangan'];
-                              $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                            or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                              $datagol = mysqli_fetch_assoc($querygol);
                               ?>
                               <tr>
                                 <td  class='center'><input type="checkbox" name="nuptk[]" onchange="checkIfAnyChecked();" value="<?php echo $data['nuptk']; ?>"></td>
                                 <td  class='center'><?=$data['nama_guru']?></td>
                                 <td  class='center'><?=$datasklh['nama']?></td>
                                 <td  class='center'><?=$data['nuptk']?></td>
-                                <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                                 <td  class='center'><?=$data['waktu_pengusulan']?></td>
                                 <td  class='center'><?=$keterangan." ".$status?></td>
                                 <td  class='center'><?=$data['periode']?></td>
@@ -331,7 +325,6 @@ if(isset($_GET['alert'])){
                                 <th class="center">NAMA GURU</th>
                                 <th class="center">SEKOLAH</th>
                                 <th class="center">NUPTK</th>
-                                <th class="center">GOLONGAN</th>
                                 <th class="center">WAKTU PENGUSULAN</th>
                                 <th class="center">STATUS</th>
                                 <th class="center">PERIODE</th>
@@ -341,7 +334,6 @@ if(isset($_GET['alert'])){
                             <tbody>
                                 <div class="box-body">
                                     <?php  
-                                      require_once 'vendor/autoload.php';
                                       $no = 1;
                                       $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S4' ORDER BY status ASC, waktu_pengusulan DESC")
                                                                       or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -352,16 +344,12 @@ if(isset($_GET['alert'])){
                                         $datasklh = mysqli_fetch_assoc($querysklh);
                                         $status=convertStatus($data['status']); 
                                         $keterangan=$data['keterangan']; 
-                                        $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                                      or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                                        $datagol = mysqli_fetch_assoc($querygol);
                                         ?>
                                           <tr>
                                             <td  class='center'><input type="checkbox" name="nuptk[]" onchange="checkIfAnyChecked();" value="<?php echo $data['nuptk']; ?>"></td>
                                             <td  class='left'><?=$data['nama_guru']?></td>
                                             <td  class='center'><?=$datasklh['nama']?></td>
                                             <td  class='center'><?=$data['nuptk']?></td>
-                                            <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                                             <td  class='center'><?=$data['waktu_pengusulan']?></td>
                                             <td  class='center'><?=$keterangan." ".$status?></td>
                                             <td  class='center'><?=$data['periode']?></td>
@@ -398,7 +386,6 @@ if(isset($_GET['alert'])){
                                 <th class="center">NAMA GURU</th>
                                 <th class="center">SEKOLAH</th>
                                 <th class="center">NUPTK</th>
-                                <th class="center">GOLONGAN</th>
                                 <th class="center">WAKTU PENGUSULAN</th>
                                 <th class="center">STATUS</th>
                                 <th class="center">PERIODE</th>
@@ -408,7 +395,6 @@ if(isset($_GET['alert'])){
                             <tbody>
                                 <div class="box-body">
                                     <?php  
-                                      require_once 'vendor/autoload.php';
                                       $no = 1;
                                       $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S5' ORDER BY status ASC, waktu_pengusulan DESC")
                                                                       or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -419,16 +405,12 @@ if(isset($_GET['alert'])){
                                         $datasklh = mysqli_fetch_assoc($querysklh);
                                         $status=convertStatus($data['status']); 
                                         $keterangan=$data['keterangan']; 
-                                        $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                                      or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                                        $datagol = mysqli_fetch_assoc($querygol);
                                         ?>
                                           <tr>
                                             <td  class='center'><input type="checkbox" name="nuptk[]" onchange="checkIfAnyChecked();" value="<?php echo $data['nuptk']; ?>"></td>
                                             <td  class='center'><?=$data['nama_guru']?></td>
                                             <td  class='center'><?=$datasklh['nama']?></td>
                                             <td  class='center'><?=$data['nuptk']?></td>
-                                            <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                                             <td  class='center'><?=$data['waktu_pengusulan']?></td>
                                             <td  class='center'><?=$keterangan." ".$status?></td>
                                             <td  class='center'><?=$data['periode']?></td>
@@ -463,7 +445,6 @@ if(isset($_GET['alert'])){
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
                               <th class="center">PERIODE</th>
@@ -473,7 +454,6 @@ if(isset($_GET['alert'])){
                           <!-- tampilan tabel body -->
                           <tbody>
                           <?php  
-                          require_once 'vendor/autoload.php';
                           $no = 1;
                           $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE periode='$_GET[periode]' AND status='S6' ORDER BY status ASC, waktu_pengusulan DESC")
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
@@ -484,16 +464,12 @@ if(isset($_GET['alert'])){
                             $datasklh = mysqli_fetch_assoc($querysklh);
                             $status=convertStatus($data['status']); 
                             $keterangan=$data['keterangan'];
-                            $querygol = mysqli_query($mysqli2, "SELECT riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE nuptk='$data[nuptk]'")
-                                                          or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                            $datagol = mysqli_fetch_assoc($querygol);
                             ?>
                             <tr>
                               <td width='20' class='center'><?=$no?></td>
                               <td  class='center'><?=$data['nama_guru']?></td>
                               <td  class='center'><?=$datasklh['nama']?></td>
                               <td  class='center'><?=$data['nuptk']?></td>
-                              <td  class='center'><?=$datagol['riwayat_kepangkatan_pangkat_golongan']?></td>
                               <td  class='center'><?=$data['waktu_pengusulan']?></td>
                               <td  class='center'><?=$keterangan." ".$status?></td>
                               <td  class='center'><?=$data['periode']?></td>

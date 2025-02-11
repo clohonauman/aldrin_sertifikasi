@@ -237,7 +237,7 @@
               </div>
             </div>
             <?php
-          }elseif($_SESSION['kode_akses']==2){
+          }elseif($_SESSION['kode_akses']==7){
             ?>
             <div class="container_tabel">
               <div class="table-responsive">
@@ -257,33 +257,32 @@
                   <!-- tampilan tabel body -->
                   <tbody>
                   <?php  
-                  require_once 'vendor/autoload.php';
                   $no = 1;
-                  $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE status='S3' AND keterangan='Menunggu Verifikasi' ORDER BY waktu_pengusulan ASC")
+                  $query = mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp ORDER BY waktu_pengusulan ASC")
                                                   or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
-
                   while ($data = mysqli_fetch_assoc($query)) { 
                     $status=convertStatus($data['status']); 
                     $keterangan=$data['keterangan']; 
-                    $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
-                                                  or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
-                    $datasklh = mysqli_fetch_assoc($querysklh);
-                    ?>
-                    <tr>
-                      <td width='20' class='center'><?=$no?></td>
-                      <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                      <td  class='center'><?=$datasklh['nama']?></td>
-                      <td  class='center'><?=$data['nuptk']?></td>
-                      <td  class='center'><?=$data['nama_guru']?></td>
-                      <td  class='center'><?=$data['periode']?></td>
-                      <td class='center'>
-                        <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pemeriksaan_form&id=<?=$data['nuptk']?>'>
-                            <i style='color:#fff' class='fa fa-eye'></i>
-                        </a>
-                      </td>
-                    </tr>
-                  <?php
-                    $no++;
+                    $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'");
+                    if(mysqli_num_rows($querysklh)>0){
+                      $datasklh = mysqli_fetch_assoc($querysklh);
+                      ?>
+                      <tr>
+                        <td width='20' class='center'><?=$no?></td>
+                        <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                        <td  class='center'><?=$datasklh['nama']?></td>
+                        <td  class='center'><?=$data['nuptk']?></td>
+                        <td  class='center'><?=$data['nama_guru']?></td>
+                        <td  class='center'><?=$data['periode']?></td>
+                        <td class='center'>
+                          <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=berkas_form&id=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                              <i style='color:#fff' class='fa fa-eye'></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <?php
+                      $no++;
+                    }
                   }
                   ?>
                   </tbody>

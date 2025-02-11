@@ -175,7 +175,7 @@
             $k=$_GET['guru'];
             $k=explode(',',$k);
             $nuptk=$k[0];
-            $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk='$nuptk'");
+            $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk like '%$nuptk'");
             $dataguru=mysqli_fetch_assoc($queryguru);
             $riwayat_kepangkatan_pangkat_golongan=$dataguru['riwayat_kepangkatan_pangkat_golongan'];
             $riwayat_sertifikasi_jenis_sertifikasi=$dataguru['riwayat_sertifikasi_jenis_sertifikasi'];
@@ -318,9 +318,8 @@
                           <tr>
                             <th class="center">No.</th>
                             <th class="center">NAMA GURU</th>
+                            <th class="center">NAMA SEKOLAH</th>
                             <th class="center">NUPTK</th>
-                            <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -330,36 +329,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
-                        $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S1' AND keterangan='Menunggu Verifikasi'");
+                        $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S1' AND keterangan='Menunggu Verifikasi' ORDER BY waktu_pengusulan");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -374,11 +368,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -388,36 +381,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S1' AND keterangan='Ditolak'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -432,11 +420,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -446,36 +433,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S1' AND keterangan='Telah Direvisi'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -490,11 +472,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -504,36 +485,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S2' AND keterangan='Menunggu Verifikasi'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -548,11 +524,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -562,36 +537,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S2' AND keterangan='Ditolak'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -606,11 +576,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -620,36 +589,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S2' AND keterangan='Telah Direvisi'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -664,11 +628,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -678,36 +641,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S3'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -722,11 +680,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -736,36 +693,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S4'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -780,11 +732,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -794,36 +745,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S5'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>
@@ -838,11 +784,10 @@
                       <table id="dataTables1" class="table table-bordered table-striped table-hover">
                         <thead>
                           <tr>
-                            <th class="center">No.</th>
+                            <th class="center">NO.</th>
                             <th class="center">NAMA GURU</th>
                             <th class="center">NUPTK</th>
                             <th class="center">SEKOLAH</th>
-                            <th class="center">GOLONGAN</th>
                             <th class="center">WAKTU PENGUSULAN</th>
                             <th class="center">STATUS</th>
                             <th class="center">PERIODE</th>
@@ -852,36 +797,31 @@
                         <!-- tampilan tabel body -->
                         <tbody>
                         <?php  
-                        require_once 'vendor/autoload.php';
                         $no = 1;
                         $query=mysqli_query($mysqli, "SELECT * FROM pengusulan_sktp WHERE id_sekolah='$_SESSION[id_sekolah]' AND status='S6'");
                         while($data=mysqli_fetch_assoc($query)){
-                          $query2=mysqli_query($mysqli2, "SELECT nuptk,nama,nuptk,riwayat_kepangkatan_pangkat_golongan FROM ptk WHERE sekolah_id='$_SESSION[id_sekolah]' AND nuptk='$data[nuptk]'");
-                          $data2=mysqli_fetch_assoc($query2);
                           $status=convertStatus($data['status']);
-                          
-                          $sklh=mysqli_query($mysqli2,"SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
-                          $datasklh=mysqli_fetch_assoc($sklh);
-                          ?>
-                          <tr>
-                            <td width='20' class='center'><?=$no?></td>
-                            <td  class='center'><?=$data2['nama']?></td>
-                            <td  class='center'><?=$data2['nuptk']?></td>
-                            <td  class='center'><?=$datasklh['nama']?></td>
-                            <td  class='center'><?=$data2['riwayat_kepangkatan_pangkat_golongan']?></td>
-                            <td  class='center'><?=$data['waktu_pengusulan']?></td>
-                            <td  class='center'><?=$data['keterangan']." ".$status?></td>
-                            <td  class='center'><?=$data['periode']?></td>
-                            <td class='center'>
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
-                                  <i style='color:#fff' class='fa fa-eye'></i>
-                              </a>
-                            </td>
-                          </tr>
-                                    
-    
-                          <?php
-                          $no++;
+                          $query2=mysqli_query($mysqli,"SELECT nama FROM sekolah WHERE npsn='$_SESSION[id_sekolah]'");
+                          if(mysqli_num_rows($query2)>0){
+                            $data2=mysqli_fetch_assoc($query2);
+                            ?>
+                            <tr>
+                              <td width='20' class='center'><?=$no?></td>
+                              <td  class='center'><?=$data['nama_guru']?></td>
+                              <td  class='center'><?=$data2['nama']?></td>
+                              <td  class='center'><?=$data['nuptk']?></td>
+                              <td  class='center'><?=$data['waktu_pengusulan']?></td>
+                              <td  class='center'><?=$data['keterangan']." ".$status?></td>
+                              <td  class='center'><?=$data['periode']?></td>
+                              <td class='center'>
+                                <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-danger btn-sm' href='?module=riwayat&guru=<?=$data['nuptk']?>&periode=<?=$data['periode']?>'>
+                                    <i style='color:#fff' class='fa fa-eye'></i>
+                                </a>
+                              </td>
+                            </tr>      
+                            <?php
+                            $no++;
+                          }
                         }
                         ?>
                         </tbody>

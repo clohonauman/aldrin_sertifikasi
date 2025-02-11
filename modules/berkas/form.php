@@ -189,7 +189,7 @@
           if(isset($_GET['id'])){
             $periode=$_GET['periode'];
             $nuptk=$_GET['id'];
-            $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk='$nuptk'");
+            $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk like '%$nuptk'");
             $dataguru=mysqli_fetch_assoc($queryguru);
             $riwayat_kepangkatan_pangkat_golongan=$dataguru['riwayat_kepangkatan_pangkat_golongan'];
             $riwayat_sertifikasi_jenis_sertifikasi=$dataguru['riwayat_sertifikasi_jenis_sertifikasi'];
@@ -203,7 +203,7 @@
 
             $query=mysqli_query($mysqli,"SELECT * FROM pengusulan_sktp WHERE nuptk='$nuptk'");
             $data=mysqli_fetch_assoc($query);
-            $query2=mysqli_query($mysqli2,"SELECT nama FROM ptk WHERE nuptk='$nuptk'");
+            $query2=mysqli_query($mysqli2,"SELECT nama FROM ptk WHERE nuptk like '%$nuptk'");
             $data2=mysqli_fetch_assoc($query2);
             $status=convertStatus($data['status']);
             $cek=0;

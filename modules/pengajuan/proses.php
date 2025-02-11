@@ -388,7 +388,7 @@ else {
             $periode=$_GET['periode'];
 
             
-            $queryguru=mysqli_query($mysqli2,"SELECT nama FROM ptk WHERE nuptk='$nuptk'");
+            $queryguru=mysqli_query($mysqli2,"SELECT nama FROM ptk WHERE nuptk like '%$nuptk'");
             $nama_guru=mysqli_fetch_assoc($queryguru);
 
             $nama_guru=mysqli_real_escape_string($mysqli,$nama_guru['nama']);

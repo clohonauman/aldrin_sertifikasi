@@ -109,22 +109,17 @@ if(isset($_GET['alert'])){
                         <select id="guruSelect" name="id" class="form-control" data-placeholder="Pilih Guru" autocomplete="off" required>
                             <option value=""></option>
                             <?php
-                            $query=mysqli_query($mysqli2, "SELECT nama,nuptk,sekolah_id,status_kepegawaian FROM ptk WHERE  (
-                                                                                                                              (
-                                                                                                                                (
-                                                                                                                                  nuptk!=''
-                                                                                                                                ) AND sekolah_id='$_SESSION[id_sekolah]'
-                                                                                                                              )
-                                                                                                                            ) 
-                                                                                                                            OR 
-                                                                                                                            (
-                                                                                                                              sekolah_id='$_SESSION[id_sekolah]'
-                                                                                                                              AND nuptk!=''
-                                                                                                                            ) 
-                                                                                                                            ORDER BY nama ASC");
+                            $query = mysqli_query($mysqli2, "SELECT nama, nuptk, status_kepegawaian FROM ptk WHERE 
+                                                                                                              sekolah_id = '$_SESSION[id_sekolah]'
+                                                                                                              AND nuptk IS NOT NULL 
+                                                                                                              AND nuptk != '' 
+                                                                                                              AND LOWER(nuptk) != ' null'
+                                                                                                              AND nuptk NOT LIKE '%null%'
+                                                                                                            ORDER BY nama ASC");
+
                             while($data=mysqli_fetch_assoc($query)){
                             ?>
-                              <option value="<?=$data['nuptk']?>"><?php echo $data['nuptk']?> | <?php echo $data['nama']?> | <?php echo $data['status_kepegawaian']?></option>
+                              <option value="<?= mysqli_real_escape_string($mysqli,$data['nuptk']) ?>"><?php echo $data['nuptk']?> | <?php echo $data['nama']?> | <?php echo $data['status_kepegawaian']?></option>
                             <?php
                             }
                             ?>
@@ -148,18 +143,6 @@ if(isset($_GET['alert'])){
                         </select>
                       </div>
                     </div>
-                    <!-- <div class="form-group">
-                      <label class="col-sm-2 control-label">Nama Lengkap Guru</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" name="nama_lengkap_guru" id="" required>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label class="col-sm-2 control-label">NUPTK</label>
-                      <div class="col-sm-5">
-                        <input type="number" class="form-control" name="nuptk" id="" required>
-                      </div>
-                    </div>
                     <div class="box-footer bg-btn-action">
                       <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -167,7 +150,7 @@ if(isset($_GET['alert'])){
                           <a href="?module=pengajuan" class="btn btn-default btn-reset">Batal</a>
                         </div>
                       </div>
-                    </div> -->
+                    </div>
 
                   </form>
                   <?php 
@@ -177,7 +160,7 @@ if(isset($_GET['alert'])){
                   $periode=$_GET['periode'];
                   $periode = preg_replace("/[^0-9]/", "", $periode);
                   if (ctype_digit($nuptk) AND ctype_digit($periode)) {
-                    $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk='$nuptk' AND sekolah_id='$_SESSION[id_sekolah]'");
+                    $queryguru=mysqli_query($mysqli2,"SELECT * FROM ptk WHERE nuptk LIKE '%$nuptk' AND sekolah_id='$_SESSION[id_sekolah]'");
                     if(mysqli_num_rows($queryguru)>0){
                       $dataguru=mysqli_fetch_assoc($queryguru);
                       $riwayat_kepangkatan_pangkat_golongan=$dataguru['riwayat_kepangkatan_pangkat_golongan'];
@@ -320,7 +303,7 @@ if(isset($_GET['alert'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $icon='<i class="fa fa-check btn-success"></i>';
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache1' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=pks&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache1' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=pks&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                             }else{
@@ -366,7 +349,7 @@ if(isset($_GET['alert'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $icon='<i class="fa fa-check btn-success"></i>';
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache2' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=info_gtk&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache2' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=info_gtk&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                             }else{
@@ -412,7 +395,7 @@ if(isset($_GET['alert'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $icon='<i class="fa fa-check btn-success"></i>';
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache3' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=sk_pembagian&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache3' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=sk_pembagian&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                             }else{
@@ -457,7 +440,7 @@ if(isset($_GET['alert'])){
                                             if(!empty($data_skpa['nama_berkas'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache4' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=skpa&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache4' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=skpa&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                               $icon='<i class="fa fa-check btn-success"></i>';
@@ -501,7 +484,7 @@ if(isset($_GET['alert'])){
                                             if(!empty($data_skba['nama_berkas'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache5' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=skba&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache5' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=skba&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                               $icon='<i class="fa fa-check btn-success"></i>';
@@ -547,7 +530,7 @@ if(isset($_GET['alert'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $icon='<i class="fa fa-check btn-success"></i>';
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache6' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=pg&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache6' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=pg&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                             }else{
@@ -593,7 +576,7 @@ if(isset($_GET['alert'])){
                                               $nama_berkas="TELAH MENGUNGGAH BERKAS";
                                               $icon='<i class="fa fa-check btn-success"></i>';
                                               $btnUnggah="";
-                                              $btnhps="<a title='Hapus' id='hapusCache7' class='load btn btn-primary btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=absen&periode=$periode&hapus'>
+                                              $btnhps="<a title='Hapus' id='hapusCache7' class='load btn btn-danger btn-sm' href='modules/pengajuan/proses.php?id=$nuptk&jenis=absen&periode=$periode&hapus'>
                                               <i style='color:#fff' class='fa fa-trash'></i>
                                               </a>";
                                             }else{

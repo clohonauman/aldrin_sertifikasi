@@ -43,7 +43,7 @@ function convertKodeAkses($kode_akses){
 }
 function logActivity($kb,$w,$nb,$jt){
 	include "database.php";
-	if((!empty($kb) && !empty($w) && !empty($nb) && !empty($jt)) && $_SESSION['id_akun']!='COPERATOR'){
+	if((!empty($kb) && !empty($w) && !empty($nb) && !empty($jt))){
 		$querylog = mysqli_query($mysqli, "INSERT INTO log_aktifitas (
 																	id_pengusulan_sktp,
 																	waktu,
