@@ -72,10 +72,16 @@ if(isset($_GET['alert'])){
                   <div class="col-sm-5">
                     <select class="form-control" data-placeholder="Pilih Tipe Pengguna" autocomplete="off" name="kode_akses" id="tipe_pengguna" required>
                       <option value=""></option>
+                      <?php
+                      if($_SESSION['kode_akses']==0){
+                        ?>
+                        <option value="7">Admin</option>
+                        <?php
+                      }
+                      ?>
                       <option value="1">Verifikator 1</option>
                       <option value="2">Verifikator 2</option>
                       <option value="3">Operator Sekolah</option>
-                      <option value="4">Bagian Keuangan</option>
                     </select>
                   </div>
                 </div>
@@ -86,17 +92,16 @@ if(isset($_GET['alert'])){
                     <select  class="form-control" autocomplete="off" name="cabdin" id="cabang_dinas">
                       <option value=""></option>
                       <option value="Kab. Minahasa Utara-SPK SKB">SPK SKB</option>
-                      <option value="Kab. Minahasa Utara-SPK PKBM">SPK PKBM</option>
-                      <option value="Kab. Minahasa Utara-SPK KB">SPK KB</option>
-                      <option value="Kab. Minahasa Utara-SPK TK">SPK TK</option>
-                      <option value="Kab. Minahasa Utara-SPK SD">SPK SD</option>
-                      <option value="Kab. Minahasa Utara-SPK SMP">SPK SMP</option>
-                      <option value="Kab. Minahasa Utara-SPK SMP">SPK SMP</option>
                       <option value="Kab. Minahasa Utara-SKB">SKB</option>
+                      <option value="Kab. Minahasa Utara-SPK PKBM">SPK PKBM</option>
                       <option value="Kab. Minahasa Utara-PKBM">PKBM</option>
+                      <option value="Kab. Minahasa Utara-SPK KB">SPK KB</option>
                       <option value="Kab. Minahasa Utara-KB">KB</option>
+                      <option value="Kab. Minahasa Utara-SPK TK">SPK TK</option>
                       <option value="Kab. Minahasa Utara-TK">TK</option>
+                      <option value="Kab. Minahasa Utara-SPK SD">SPK SD</option>
                       <option value="Kab. Minahasa Utara-SD">SD</option>
+                      <option value="Kab. Minahasa Utara-SPK SMP">SPK SMP</option>
                       <option value="Kab. Minahasa Utara-SMP">SMP</option>
                     </select>
                   </div>
@@ -108,10 +113,10 @@ if(isset($_GET['alert'])){
                     <select  class="form-control" name="sekolah" id="sekolah">
                       <option value="" disabled selected>-Pilih Sekolah-</option>
                       <?php
-                      $query_sekolah=mysqli_query($mysqli2,"SELECT sekolah_id, nama FROM sekolah WHERE bentuk_pendidikan IN ('TK','PAUD','SD', 'SMP') AND kabupaten='Kab. Minahasa Utara' ORDER BY nama");
+                      $query_sekolah=mysqli_query($mysqli2,"SELECT npsn, nama FROM sekolah WHERE bentuk_pendidikan IN ('PKBM', 'SPK PKBM', 'SKB', 'SPK SKB', 'KB', 'SPK KB', 'TK', 'SPK TK', 'PAUD', 'SD', 'SPK SD', 'SMP', 'SPK SMP') ORDER BY nama");
                       while($data_sekolah=mysqli_fetch_assoc($query_sekolah)){
                         ?>
-                        <option value="<?=$data_sekolah['sekolah_id']?>"><?=$data_sekolah['nama']?></option>
+                        <option value="<?=$data_sekolah['npsn']?>"><?=$data_sekolah['nama']?></option>
                         <?php
                       }
                       ?>

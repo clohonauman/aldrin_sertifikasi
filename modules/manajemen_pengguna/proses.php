@@ -30,7 +30,7 @@ else {
             $queryakun=mysqli_query($mysqli,"SELECT akun.id_akun,kode_akses,id_sekolah FROM akun INNER JOIN peran ON peran.id_akun=akun.id_akun WHERE akun.id_akun='$id_akun'");
             $data=mysqli_fetch_assoc($queryakun);
 
-            $querysekolah=mysqli_query($mysqli2,"SELECT npsn FROM sekolah WHERE sekolah_id='$data[id_sekolah]'");
+            $querysekolah=mysqli_query($mysqli2,"SELECT npsn FROM sekolah WHERE npsn='$data[id_sekolah]'");
             $datasekolah=mysqli_fetch_assoc($querysekolah);
             $ks=password_hash("123456", PASSWORD_DEFAULT);
             $ka=$data['kode_akses'];
@@ -73,7 +73,7 @@ else {
                 }
             }elseif(!empty($_POST['sekolah']) AND empty($_POST['cabdin'])){
                 $id_sekolah=$_POST['sekolah'];
-                $query_data_sekolah=mysqli_query($mysqli2,"SELECT sekolah_id, nama, kabupaten FROM sekolah WHERE sekolah_id='$id_sekolah'");
+                $query_data_sekolah=mysqli_query($mysqli2,"SELECT npsn, nama, kabupaten FROM sekolah WHERE npsn='$id_sekolah'");
                 if(mysqli_num_rows($query_data_sekolah)>0){
                     $data_sekolah=mysqli_fetch_assoc($query_data_sekolah);
                     $nama_sekolah=$data_sekolah['nama'];
