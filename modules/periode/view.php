@@ -287,6 +287,11 @@ if(isset($_GET['alert'])){
               </div>
             </div>
             <hr>
+            <div class="card alert-info p-2">
+              <b><i class="fa fa-warning"></i> Perhatian!</b>
+              <p>Jika berkas yang akan diminta tidak ada dalam daftar, silahkan hidupkan 'Berkas Lainnya' dan arahkan sekolah untuk mengunggah berkas tersebut pada bagian Berkas Lainnya. Terima kasih.</p>
+            </div>
+            <hr>
             <div class="box-footer bg-btn-action text-left">
               <div class="form-group">
                 <div class="col-sm-12">
