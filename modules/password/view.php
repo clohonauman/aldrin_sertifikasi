@@ -43,6 +43,7 @@ if(isset($_GET['alert'])){
               <label class="col-sm-2 control-label">Kata Sandi Baru</label>
               <div class="col-sm-5">
                 <input type="password" class="form-control" name="new_pass" autocomplete="off" required>
+                <i>* digunakan pada saat masuk ke ALDRIN SERTIFIKASI & ALDRIN TERPADU.</i>
               </div>
             </div>
 

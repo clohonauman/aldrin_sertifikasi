@@ -30,15 +30,15 @@ if (isset($_POST['id_akun'])) {
                 <label class="col-sm-2 control-label">Nama Pengguna</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="nama_pengguna" autocomplete="off" value="<?php echo $data['nama_pengguna']; ?>" required>
-                  <i>* digunakan pada saat masuk ke aplikasi.</i>
+                  <i>* digunakan pada saat masuk ke ALDRIN SERTIFIKASI & ALDRIN TERPADU.</i>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-sm-2 control-label">Nama Lengkap</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="nama_lengkap" autocomplete="off" value="<?php echo $data['nama_lengkap']; ?>" required readonly>
-                  <i>* hubungi admin untuk mengubah nama lengkap.</i>
+                  <input type="text" class="form-control" name="nama_lengkap" autocomplete="off" value="<?php echo $data['nama_lengkap']; ?>" required>
+                  <i>* otomatis juga berubah pada ALDRIN SERTIFIKASI & ALDRIN TERPADU.</i>
                 </div>
               </div>
 
