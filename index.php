@@ -32,6 +32,12 @@ if ($result) {
             .logo {
                 height: 45px;
             }
+            @media (max-width: 768px) {
+                body {
+                    background: url('assets/images/2.png') no-repeat center center fixed;
+                    background-size: cover;
+                }
+            }
         </style>
     </head>
     <body class="hold-transition layout-top-nav">
