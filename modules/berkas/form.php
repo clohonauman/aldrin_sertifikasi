@@ -320,9 +320,9 @@
                             }
                             ?>
                             <td class="text-center" ><?=$no?></td>
-                            <td>SPTJM KEPALA SEKOLAH</td>
+                            <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS</td>
                             <td class="text-center">
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SPTJM KEPALA SEKOLAH'>
+                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS'>
                                   <i style='color:#fff' class='fa fa-eye'></i>
                               </a>
                             </td>
@@ -407,9 +407,9 @@
                             }
                             ?>
                             <td class="text-center" ><?=$no?></td>
-                            <td>SK PANGKAT AKHIR</td>
+                            <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI</td>
                             <td class="text-center">
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK PANGKAT AKHIR'>
+                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PERNYATAAN PRIBADI DIATAS METERAI'>
                                   <i style='color:#fff' class='fa fa-eye'></i>
                               </a>
                             </td>
@@ -436,9 +436,9 @@
                             }
                             ?>
                             <td class="text-center" ><?=$no?></td>
-                            <td>SK BERKALA AKHIR</td>
+                            <td>SASARAN KINERJA PEGAWAI</td>
                             <td class="text-center">
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK BERKALA AKHIR'>
+                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SASARAN KINERJA PEGAWAI'>
                                   <i style='color:#fff' class='fa fa-eye'></i>
                               </a>
                             </td>
@@ -465,9 +465,9 @@
                             }
                             ?>
                             <td class="text-center" ><?=$no?></td>
-                            <td>PROFIL GURU</td>
+                            <td>SURAT PENGANTAR DARI KEPSEK</td>
                             <td class="text-center">
-                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=PROFIL GURU'>
+                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='btn btn-danger btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PENGANTAR DARI KEPSEK'>
                                   <i style='color:#fff' class='fa fa-eye'></i>
                               </a>
                             </td>

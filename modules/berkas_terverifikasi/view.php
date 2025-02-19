@@ -275,7 +275,7 @@ if(isset($_GET['alert'])){
                                                             or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                             while ($data = mysqli_fetch_assoc($query)) { 
-                              $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                              $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                             or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                               $datasklh = mysqli_fetch_assoc($querysklh);
                               $status=convertStatus($data['status']); 
@@ -339,7 +339,7 @@ if(isset($_GET['alert'])){
                                                                       or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                                       while ($data = mysqli_fetch_assoc($query)) { 
-                                        $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                                        $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                                       or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                                         $datasklh = mysqli_fetch_assoc($querysklh);
                                         $status=convertStatus($data['status']); 
@@ -400,7 +400,7 @@ if(isset($_GET['alert'])){
                                                                       or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                                       while ($data = mysqli_fetch_assoc($query)) { 
-                                        $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                                        $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                                       or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                                         $datasklh = mysqli_fetch_assoc($querysklh);
                                         $status=convertStatus($data['status']); 
@@ -459,7 +459,7 @@ if(isset($_GET['alert'])){
                                                           or die('Ada kesalahan pada query tampil Data barang Masuk: '.mysqli_error($mysqli));
 
                           while ($data = mysqli_fetch_assoc($query)) { 
-                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE sekolah_id='$data[id_sekolah]'")
+                            $querysklh = mysqli_query($mysqli2, "SELECT nama FROM sekolah WHERE npsn='$data[id_sekolah]'")
                                                           or die('Ada kesalahan pada query : '.mysqli_error($mysqli));
                             $datasklh = mysqli_fetch_assoc($querysklh);
                             $status=convertStatus($data['status']); 

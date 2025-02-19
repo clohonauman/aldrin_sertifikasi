@@ -394,7 +394,7 @@ if(isset($_GET['alert'])){
                       <div class="card-header" id="section1">
                         <h5 class="mb-0">
                           <button style="margin:5px;padding:5px;text-align:left;width:100%;" class="btn" data-toggle="collapse" data-target="#sk_kepala_sekolah">
-                          <?php if($data['komentar_sk_kepsek']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_kepsek']=='Telah di Revisi' OR $data['komentar_sk_kepsek']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_kepsek']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SPTJM KEPALA SEKOLAH
+                          <?php if($data['komentar_sk_kepsek']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_kepsek']=='Telah di Revisi' OR $data['komentar_sk_kepsek']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_kepsek']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS
                           </button>
                           <?php if($data['komentar_sk_kepsek']!=''){ $i++; } 
                           if(  $data['komentar_sk_kepsek']=='Telah di Revisi' ){ $rev++; }
@@ -660,7 +660,7 @@ if(isset($_GET['alert'])){
                       <div class="card-header" id="section1">
                         <h5 class="mb-0">
                           <button style="margin:5px;padding:5px;text-align:left;width:100%;" class="btn" data-toggle="collapse" data-target="#skpa">
-                          <?php if($data['komentar_sk_pangkat_akhir']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_pangkat_akhir']=='Telah di Revisi' OR $data['komentar_sk_pangkat_akhir']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_pangkat_akhir']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SK PANGKAT AKHIR
+                          <?php if($data['komentar_sk_pangkat_akhir']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_pangkat_akhir']=='Telah di Revisi' OR $data['komentar_sk_pangkat_akhir']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_pangkat_akhir']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SURAT PERNYATAAN PRIBADI DIATAS METERAI
                           </button>
                           <?php if($data['komentar_sk_pangkat_akhir']!=''){ $i++; } 
                           if(  $data['komentar_sk_pangkat_akhir']=='Telah di Revisi' ){ $rev++; }
@@ -756,7 +756,7 @@ if(isset($_GET['alert'])){
                       <div class="card-header" id="section1">
                         <h5 class="mb-0">
                           <button style="margin:5px;padding:5px;text-align:left;width:100%;" class="btn" data-toggle="collapse" data-target="#skba">
-                          <?php if($data['komentar_sk_berkala_akhir']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_berkala_akhir']=='Telah di Revisi' OR $data['komentar_sk_berkala_akhir']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_berkala_akhir']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SK BERKALA AKHIR
+                          <?php if($data['komentar_sk_berkala_akhir']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_sk_berkala_akhir']=='Telah di Revisi' OR $data['komentar_sk_berkala_akhir']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_sk_berkala_akhir']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SASARAN KINERJA PEGAWAI
                           </button>
                           <?php if($data['komentar_sk_berkala_akhir']!=''){ $i++; } 
                           if(  $data['komentar_sk_berkala_akhir']=='Telah di Revisi' ){ $rev++; }
@@ -852,7 +852,7 @@ if(isset($_GET['alert'])){
                       <div class="card-header" id="section1">
                         <h5 class="mb-0">
                           <button style="margin:5px;padding:5px;text-align:left;width:100%;" class="btn" data-toggle="collapse" data-target="#pg">
-                          <?php if($data['komentar_profil_guru']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_profil_guru']=='Telah di Revisi' OR $data['komentar_profil_guru']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_profil_guru']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT PROFIL GURU
+                          <?php if($data['komentar_profil_guru']=="1234567890terima"){ ?> <i class='fa fa-check btn-success' style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php }elseif($data['komentar_profil_guru']=='Telah di Revisi' OR $data['komentar_profil_guru']==''){ ?> <i class="fa fa-clock-o btn-primary" style="padding:2px;border-radius:50%;font-size:15px;"></i> <?php } elseif($data['komentar_profil_guru']==''){  }else{ ?> <i class="fa fa-times btn-danger" style="width:18px;text-align:center;padding:2px;border-radius:50%;font-size:15px;"></i> <?php }?> LIHAT SURAT PENGANTAR DARI KEPSEK
                           </button>
                           <?php if($data['komentar_profil_guru']!=''){ $i++; } 
                           if(  $data['komentar_profil_guru']=='Telah di Revisi' ){ $rev++; }

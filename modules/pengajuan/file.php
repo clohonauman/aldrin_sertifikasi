@@ -49,7 +49,7 @@
         if($s=="JURNAL"){
           $jenis="jurnal";
         }
-        if($s=="SPTJM KEPALA SEKOLAH"){
+        if($s=="SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS"){
           $jenis="pks";
         }
         if($s=="INFO GTK"){
@@ -58,13 +58,13 @@
         if($s=="SK PEMBAGIAN TUGAS"){
           $jenis="sk_pembagian";
         }
-        if($s=="SK PANGKAT AKHIR"){
+        if($s=="SURAT PERNYATAAN PRIBADI DIATAS METERAI"){
           $jenis="skpa";
         }
-        if($s=="SK BERKALA AKHIR"){
+        if($s=="SASARAN KINERJA PEGAWAI"){
           $jenis="skba";
         }
-        if($s=="PROFIL GURU"){
+        if($s=="SURAT PENGANTAR DARI KEPSEK"){
           $jenis="pg";
         }
         if($s=="ABSEN"){
@@ -192,7 +192,7 @@
             </div>
             <hr>
             <div style="width: 100%; height: 500px; display: flex; justify-content: center; align-items: center;">
-              <p>Maaf browser tidak dapat mengakses link secara langsung, silakan klik Lihat Jurnal untuk mengakses berkas secara langsung.</p>
+              <iframe src="<?=$datasktp['jurnal']?>/preview" class="col-md-12" style="height: 100%;" allow="autoplay"></iframe>
             </div>
 
             <?php
@@ -206,7 +206,7 @@
             </div>
             <hr>
             <div style="width: 100%; height: 500px; display: flex; justify-content: center; align-items: center;">
-              <p>Maaf browser tidak dapat mengakses link secara langsung, silakan klik Lihat Jurnal untuk mengakses berkas secara langsung.</p>
+              <iframe src="<?=$datasktp['lainnya']?>/preview" class="col-md-12" style="height: 100%;" allow="autoplay"></iframe>
             </div>
 
             <?php

@@ -172,7 +172,7 @@ if(isset($_GET['alert'])){
                       </tr>
                       <tr>
                         <td class="text-center">2</td>
-                        <td>SPTJM KEPALA SEKOLAH</td>
+                        <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS</td>
                         <td class="text-center">
                           <label class="switch">
                             <input 
@@ -214,7 +214,7 @@ if(isset($_GET['alert'])){
                       </tr>
                       <tr>
                         <td class="text-center">5</td>
-                        <td>SK PANGKAT AKHIR</td>
+                        <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI</td>
                         <td class="text-center">
                           <label class="switch">
                             <input 
@@ -228,7 +228,7 @@ if(isset($_GET['alert'])){
                       </tr>
                       <tr>
                         <td class="text-center">6</td>
-                        <td>SK BERKALA AKHIR</td>
+                        <td>SASARAN KINERJA PEGAWAI</td>
                         <td class="text-center">
                           <label class="switch">
                             <input 
@@ -242,7 +242,7 @@ if(isset($_GET['alert'])){
                       </tr>
                       <tr>
                         <td class="text-center">7</td>
-                        <td>PROFIL GURU</td>
+                        <td>SURAT PENGANTAR DARI KEPSEK</td>
                         <td class="text-center">
                           <label class="switch">
                             <input 
@@ -424,7 +424,7 @@ if(isset($_GET['alert'])){
                         </tr>
                         <tr>
                           <td class="text-center">2</td>
-                          <td>SPTJM KEPALA SEKOLAH</td>
+                          <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS</td>
                           <td class="text-center">
                             <label class="switch">
                               <input 
@@ -472,7 +472,7 @@ if(isset($_GET['alert'])){
                         </tr>
                         <tr>
                           <td class="text-center">5</td>
-                          <td>SK PANGKAT AKHIR</td>
+                          <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI</td>
                           <td class="text-center">
                             <label class="switch">
                               <input 
@@ -488,7 +488,7 @@ if(isset($_GET['alert'])){
                         </tr>
                         <tr>
                           <td class="text-center">6</td>
-                          <td>SK BERKALA AKHIR</td>
+                          <td>SASARAN KINERJA PEGAWAI</td>
                           <td class="text-center">
                             <label class="switch">
                               <input 
@@ -504,7 +504,7 @@ if(isset($_GET['alert'])){
                         </tr>
                         <tr>
                           <td class="text-center">7</td>
-                          <td>PROFIL GURU</td>
+                          <td>SURAT PENGANTAR DARI KEPSEK</td>
                           <td class="text-center">
                             <label class="switch">
                               <input 

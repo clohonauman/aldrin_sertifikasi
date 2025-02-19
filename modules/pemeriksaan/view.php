@@ -383,9 +383,9 @@
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
+                              <th class="center">PERIODE</th>
                               <th class="center">AKSI</th>
                             </tr> 
                           </thead>
@@ -594,9 +594,9 @@
                               <th class="center">NAMA GURU</th>
                               <th class="center">SEKOLAH</th>
                               <th class="center">NUPTK</th>
-                              <th class="center">GOLONGAN</th>
                               <th class="center">WAKTU PENGUSULAN</th>
                               <th class="center">STATUS</th>
+                              <th class="center">PERIODE</th>
                               <th class="center">AKSI</th>
                             </tr> 
                           </thead>

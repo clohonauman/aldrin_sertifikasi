@@ -134,7 +134,7 @@
         <a href="./" class="navbar-brand p-0">
         <header class="header">
             <img src="assets/img/favicon.png" alt="Logo" class="logo">
-            <h1 class="title"><img class="ALDRIN-SERTIFIKASI" src="assets/img/ALDRIN SERTIFIKASI.png" alt="ALDRIN SERTIFIKASI"></h1>
+            <h1 class="title"><img class="ALDRIN-SERTIFIKASI" src="assets/img/ALDRIN Sertifikasi.png" alt="ALDRIN SERTIFIKASI"></h1>
         </header>
         </a>
         <div class="navbar-nav ms-auto py-0">

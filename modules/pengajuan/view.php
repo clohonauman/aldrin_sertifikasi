@@ -317,11 +317,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SPTJM KEPALA SEKOLAH<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SPTJM KEPALA SEKOLAH'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <?=$btnUnggah?>
@@ -454,11 +454,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SK PANGKAT AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK PANGKAT AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PERNYATAAN PRIBADI DIATAS METERAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <?=$btnUnggah?>
@@ -498,11 +498,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SK BERKALA AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SASARAN KINERJA PEGAWAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK BERKALA AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SASARAN KINERJA PEGAWAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <?=$btnUnggah?>
@@ -544,11 +544,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>PROFIL GURU<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT PENGANTAR DARI KEPSEK<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=PROFIL GURU'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PENGANTAR DARI KEPSEK'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <?=$btnUnggah?>
@@ -808,11 +808,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                                 <td class="center-text" ><?=$no?></td>
-                                            <td>SPTJM KEPALA SEKOLAH<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SPTJM KEPALA SEKOLAH'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -895,11 +895,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                               <td class="center-text" ><?=$no?></td>
-                                            <td>SK PANGKAT AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK PANGKAT AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PERNYATAAN PRIBADI DIATAS METERAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -922,11 +922,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >6</td>
-                                            <td>SK BERKALA AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SASARAN KINERJA PEGAWAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK BERKALA AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SASARAN KINERJA PEGAWAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -952,11 +952,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >7</td>
-                                            <td>PROFIL GURU<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT PENGANTAR DARI KEPSEK<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=PROFIL GURU'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PENGANTAR DARI KEPSEK'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -1157,11 +1157,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SPTJM KEPALA SEKOLAH<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SPTJM KEPALA SEKOLAH'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -1220,11 +1220,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SK PANGKAT AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK PANGKAT AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PERNYATAAN PRIBADI DIATAS METERAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -1240,11 +1240,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >6</td>
-                                            <td>SK BERKALA AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SASARAN KINERJA PEGAWAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK BERKALA AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SASARAN KINERJA PEGAWAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -1262,11 +1262,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >7</td>
-                                            <td>PROFIL GURU<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT PENGANTAR DARI KEPSEK<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=PROFIL GURU'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PENGANTAR DARI KEPSEK'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                             </td>
@@ -1446,11 +1446,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SPTJM KEPALA SEKOLAH<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SPTJM KEPALA SEKOLAH'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <a data-toggle='tooltip' data-placement='top' title='Unggah/Ganti Berkas' class='load btn btn-success btn-sm' href='?module=pengajuan&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=pks&unggah'  <?php if($datafile['status']=='S1'){ echo 'disabled'; } ?>>
@@ -1518,11 +1518,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" ><?=$no?></td>
-                                            <td>SK PANGKAT AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SURAT PERNYATAAN PRIBADI DIATAS METERAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK PANGKAT AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PERNYATAAN PRIBADI DIATAS METERAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <a data-toggle='tooltip' data-placement='top' title='Unggah/Ganti Berkas' class='load btn btn-success btn-sm' href='?module=pengajuan&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=skpa&unggah'  <?php if($datafile['status']=='S1'){ echo 'disabled'; } ?>>
@@ -1541,11 +1541,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >6</td>
-                                            <td>SK BERKALA AKHIR<span style="color:#f00;font-size:20px;"></span></td>
+                                            <td>SASARAN KINERJA PEGAWAI<span style="color:#f00;font-size:20px;"></span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SK BERKALA AKHIR'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SASARAN KINERJA PEGAWAI'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <a data-toggle='tooltip' data-placement='top' title='Unggah/Ganti Berkas' class='load btn btn-success btn-sm' href='?module=pengajuan&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=skba&unggah'  <?php if($datafile['status']=='S1'){ echo 'disabled'; } ?>>
@@ -1566,11 +1566,11 @@ if(isset($_GET['alert'])){
                                             }
                                             ?>
                                             <td class="center-text" >7</td>
-                                            <td>PROFIL GURU<span style="color:#f00;font-size:20px;">*</span></td>
+                                            <td>SURAT PENGANTAR DARI KEPSEK<span style="color:#f00;font-size:20px;">*</span></td>
                                             <td class="center-text"><?=$icon?></td>
                                             <td class="center-text"><?=$nama_berkas?></td>
                                             <td class="center-text">
-                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=PROFIL GURU'>
+                                              <a data-toggle='tooltip' data-placement='top' title='Lihat' class='load btn btn-primary btn-sm' href='?module=pengajuan_file&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=SURAT PENGANTAR DARI KEPSEK'>
                                                   <i style='color:#fff' class='fa fa-eye'></i>
                                               </a>
                                               <a data-toggle='tooltip' data-placement='top' title='Unggah/Ganti Berkas' class='load btn btn-success btn-sm' href='?module=pengajuan&id=<?=$nuptk?>&periode=<?=$periode?>&jenis=pg&unggah'  <?php if($datafile['status']=='S1'){ echo 'disabled'; } ?>>
@@ -1761,7 +1761,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_kepsek']!='1234567890terima' AND $data['komentar_sk_kepsek']!='Telah di Revisi' AND $data['komentar_sk_kepsek']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SPTJM Kepala Sekolah</label>
+                            <label class="col-sm-2 control-label">SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="pengantar_kepala_sekolah" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -1815,7 +1815,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_pangkat_akhir']!='1234567890terima' AND $data['komentar_sk_pangkat_akhir']!='Telah di Revisi' AND $data['komentar_sk_pangkat_akhir']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SK Pangkat Akhir</label>
+                            <label class="col-sm-2 control-label">SURAT PERNYATAAN PRIBADI DIATAS METERAI</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="sk_pangkat_akhir" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -1833,7 +1833,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_berkala_akhir']!='1234567890terima' AND $data['komentar_sk_berkala_akhir']!='Telah di Revisi' AND $data['komentar_sk_berkala_akhir']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SK Berkala Akhir</label>
+                            <label class="col-sm-2 control-label">SASARAN KINERJA PEGAWAI</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="sk_berkala_akhir" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -1851,7 +1851,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_profil_guru']!='1234567890terima' AND $data['komentar_profil_guru']!='Telah di Revisi' AND $data['komentar_profil_guru']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Profil Guru</label>
+                            <label class="col-sm-2 control-label">SURAT PENGANTAR DARI KEPSEK</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="profil_guru" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -1947,7 +1947,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_kepsek']!='1234567890terima' AND $data['komentar_sk_kepsek']!='Telah di Revisi' AND $data['komentar_sk_kepsek']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SPTJM Kepala Sekolah</label>
+                            <label class="col-sm-2 control-label">SURAT MELAKSANAKAN TUGAS KEPSEK MENGETAHUI PENGAWAS</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="pengantar_kepala_sekolah" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -2001,7 +2001,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_pangkat_akhir']!='1234567890terima' AND $data['komentar_sk_pangkat_akhir']!='Telah di Revisi' AND $data['komentar_sk_pangkat_akhir']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SK Pangkat Akhir</label>
+                            <label class="col-sm-2 control-label">SURAT PERNYATAAN PRIBADI DIATAS METERAI</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="sk_pangkat_akhir" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -2019,7 +2019,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_sk_berkala_akhir']!='1234567890terima' AND $data['komentar_sk_berkala_akhir']!='Telah di Revisi' AND $data['komentar_sk_berkala_akhir']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">SK Berkala Akhir</label>
+                            <label class="col-sm-2 control-label">SASARAN KINERJA PEGAWAI</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="sk_berkala_akhir" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
@@ -2037,7 +2037,7 @@ if(isset($_GET['alert'])){
                         if(($data['komentar_profil_guru']!='1234567890terima' AND $data['komentar_profil_guru']!='Telah di Revisi' AND $data['komentar_profil_guru']!="") OR $data['komentar_umum']!=""){
                           ?>
                           <div class="form-group">
-                            <label class="col-sm-2 control-label">Profil Guru</label>
+                            <label class="col-sm-2 control-label">SURAT PENGANTAR DARI KEPSEK</label>
                             <div class="col-sm-5">
                             <input type="file" class="form-control" name="profil_guru" accept=".pdf" autocomplete="off" <?php if($data['status']!='S2'){ echo 'required'; } ?>>
                             <i><b>Format Didukung: </b>(.pdf < 1 MB) - Tetap Kosongkan Jika Tidak Akan Mengubah.</i>
