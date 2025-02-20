@@ -19,7 +19,7 @@ if ($result) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <style>
             body {
-                background: url('assets/images/1.png') no-repeat center center fixed;
+                background: url('assets/images/1.webp') no-repeat center center fixed;
                 background-size: cover;
             }
             .navbar {
@@ -34,7 +34,7 @@ if ($result) {
             }
             @media (max-width: 768px) {
                 body {
-                    background: url('assets/images/2.png') no-repeat center center fixed;
+                    background: url('assets/images/2.webp') no-repeat center center fixed;
                     background-size: cover;
                 }
             }
