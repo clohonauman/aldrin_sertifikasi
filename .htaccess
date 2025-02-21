@@ -1,1 +1,5 @@
- 
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+    ErrorDocument 403 /404.html
+</FilesMatch>
