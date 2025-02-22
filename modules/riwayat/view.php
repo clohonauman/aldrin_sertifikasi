@@ -257,11 +257,11 @@
                   </ol>
                 <br>
                 <h2><b>KETERANGAN</b></h2>
-                <h3>V1 = Verifikasi 1 (Cabang Dinas / Bidang)</h3>
-                <h3>V2 = Verifikasi 2 (Bidang GTK)</h3>
-                <h3>V3 = Proses Pengajuan SKTP</h3>
+                <h3>V1 = Verifikasi 1</h3>
+                <h3>V2 = Verifikasi 2</h3>
+                <h3>V3 = Proses Pengajuan SIMTUN</h3>
                 <h3>V4 = Menunggu proses pada SIMBAR</h3>
-                <h3>V5 = Menunggu proses SPM (Bidang Keuangan)</h3>
+                <h3>V5 = Menunggu proses SPM</h3>
                 <h3>V6 = Selesai Pemberkasan Administrasi (Menunggu Pembayaran ± 2 Minggu)</h3>
                 <?php
                 if($datastatus['keterangan']=='Ditolak'){
